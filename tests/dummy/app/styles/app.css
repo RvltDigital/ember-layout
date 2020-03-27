@@ -1,0 +1,69 @@
+/*
+ * Left Layout
+ */
+.left-layout {
+    display: flex;
+    align-items: stretch;
+}
+
+.left-layout .menu {
+     margin: 15px 0;
+     flex-basis: 20%;
+}
+
+.left-layout .menu__list-item {
+     float: none;
+}
+
+.left-layout .content {
+     margin: 15px 0;
+     flex-basis: 80%;
+}
+
+/*
+ * Menu
+ */
+.menu {
+    margin: 15px 0;
+}
+
+.menu__label {
+    color: gray;
+    font-weight: bolder;
+}
+
+.menu__list {
+    padding: 0;
+    margin: 5px 20px;
+    border: solid gray 1px;
+    list-style: none;
+}
+
+.menu__list::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.menu__list-item {
+    padding: 5px 10px;
+    float: left;
+}
+
+/*
+ * Content
+ */
+.content {
+    margin: 15px 0;
+}
+
+.content__label {
+    color: gray;
+    font-weight: bolder;
+}
+
+.content__inner {
+    border: solid gray 1px;
+    margin: 5px 20px;
+    padding: 0 15px;
+}
