@@ -20,7 +20,7 @@ class LayoutService extends Service
             throw 'The "defaultLayoutName" config must be string.'
         }
         this.defaultLayoutName = defaultLayoutName;
-        this.current = get(this.router, 'currentRoute.metadata.layout') || this.defaultLayoutName;
+        this.current = this.getInitialLayout();
         this.router.on('routeWillChange', bind(this, this.routeWillChange));
     }
 
@@ -28,6 +28,20 @@ class LayoutService extends Service
     {
         const result = to.find((item, index) => index !== 0 && typeof get(item, 'metadata.layout') === 'string');
         this.current = !result? this.defaultLayoutName: result.metadata.layout;
+    }
+
+    getInitialLayout()
+    {
+        let layout = get(this.router, 'currentRoute.metadata.layout') || this.defaultLayoutName;
+        let route = this.router.currentRoute;
+        while (route.parent !== null) {
+            route = route.parent;
+            const _layout = get(route, 'metadata.layout');
+            if (typeof _layout === 'string') {
+                layout = _layout;
+            }
+        }
+        return layout;
     }
 }
 
