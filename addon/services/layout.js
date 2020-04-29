@@ -21,12 +21,12 @@ class LayoutService extends Service
         }
         this.defaultLayoutName = defaultLayoutName;
         this.current = this.getInitialLayout();
-        this.router.on('routeWillChange', bind(this, this.routeWillChange));
+        this.router.on('routeDidChange', bind(this, this.routeDidChange));
     }
 
-    routeWillChange({ to })
+    routeDidChange(transition)
     {
-        const result = to.find((item, index) => index !== 0 && typeof get(item, 'metadata.layout') === 'string');
+        const result = transition.to.find((item, index) => index !== 0 && typeof get(item, 'metadata.layout') === 'string');
         this.current = !result? this.defaultLayoutName: result.metadata.layout;
     }
 
