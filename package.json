@@ -1,11 +1,11 @@
 {
   "name": "ember-layout",
-  "version": "1.0.2",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "2.0.0",
+  "description": "Dynamic route layout for Ember.js",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/RvltDigital/ember-layout",
   "license": "MIT",
   "author": "",
   "directories": {

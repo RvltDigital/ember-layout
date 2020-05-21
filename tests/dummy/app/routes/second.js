@@ -1,8 +1,9 @@
-import LayoutRoute from 'ember-layout/routes/layout';
+import Route from '@ember/routing/route';
+import { layout } from 'ember-layout';
 
-class SecondRoute extends LayoutRoute
+@layout('left')
+class SecondRoute extends Route
 {
-    layout = 'left'
 }
 
 export default SecondRoute;

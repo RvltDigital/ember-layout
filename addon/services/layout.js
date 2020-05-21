@@ -26,6 +26,9 @@ class LayoutService extends Service
 
     routeDidChange(transition)
     {
+        if (!transition.to) {
+            return;
+        }
         const result = transition.to.find((item, index) => index !== 0 && typeof get(item, 'metadata.layout') === 'string');
         this.current = !result? this.defaultLayoutName: result.metadata.layout;
     }
