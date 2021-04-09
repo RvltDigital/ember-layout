@@ -37,7 +37,7 @@ class LayoutService extends Service
     {
         let layout = get(this.router, 'currentRoute.metadata.layout') || this.defaultLayoutName;
         let route = this.router.currentRoute;
-        while (route.parent !== null) {
+        while (route && route.parent !== null) {
             route = route.parent;
             const _layout = get(route, 'metadata.layout');
             if (typeof _layout === 'string') {
